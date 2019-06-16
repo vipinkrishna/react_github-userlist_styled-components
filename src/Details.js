@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import Avatar from './avatar.png'
 
 const UserDetails = styled.div`
   /* flex: 1; */
@@ -49,9 +48,9 @@ const UserInfo = styled.div`
 
 export default ({ user }) => {
   const userInfo = <UserInfo>
-    <UserField>Name: {user ? user.login : null}</UserField>
-    <UserField>Id: {user ? user.id : null}</UserField>
-    <UserAvatar src={user ? user.avatar_url : Avatar} alt={user ? user.login : null} />
+    {user ? <UserField>Name: {user.login}</UserField> : null}
+    {user ? <UserField>Id: {user.id}</UserField> : null}
+    {user ? <UserAvatar src={user.avatar_url} alt={user.login} /> : null}
   </UserInfo>
   return <>
     <UserDetails>
